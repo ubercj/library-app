@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Library</title>
+    <meta charset="UTF-8"/>
+    <link rel="stylesheet" href="style.css">
+  </head>
+
+  <body>
+    <header>
+      <h1>My Library</h1>
+    </header>
+      
+    <section class="main">
+      <div class="container">
+
+        <!-- Pop-up Form -->
+        <div class="modal hidden">
+          <form action="" method="post" id="form">
+            <div class="control">
+              <label for="title">
+                Title: <input type="text" id="title" name="title" required>
+              </label>
+            </div>
+            <div class="control">
+              <label for="author">
+                Author: <input type="text" id="author" name="author" required>
+              </label>
+            </div>
+            <div class="control">
+              <label for="pages">
+                Pages: <input type="number" id="pages" name="pages" required>
+              </label>
+            </div>
+            <div class="control">
+              <button type="submit" id="submit">Add Book</button>
+            </div>
+          </form>
+        </div>
+
+        <!-- Current library -->
+        <section class="current">
+
+        </section>
+
+        <button class="create">New Book</button>
+      </div>
+    </section>
+  
+    <script src="script.js"></script>
+  </body>
+</html>
