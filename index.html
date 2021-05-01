@@ -16,26 +16,30 @@
 
         <!-- Pop-up Form -->
         <div class="modal hidden">
-          <form action="" method="post" id="form">
-            <div class="control">
-              <label for="title">
-                Title: <input type="text" id="title" name="title" required>
-              </label>
+          <div class="form-container">
+            <h2>Enter a new book:</h2>
+            <form action="" method="post" id="form">
+              <div class="control">
+                <label for="title">
+                  Title: <input type="text" id="title" name="title" required>
+                </label>
+              </div>
+              <div class="control">
+                <label for="author">
+                  Author: <input type="text" id="author" name="author" required>
+                </label>
+              </div>
+              <div class="control">
+                <label for="pages">
+                  Pages: <input type="number" id="pages" name="pages" required>
+                </label>
+              </div>
+              <div class="control">
+                <button id="cancel">Cancel</button>
+                <button type="submit" id="submit">Add Book</button>
+              </div>
+            </form>
             </div>
-            <div class="control">
-              <label for="author">
-                Author: <input type="text" id="author" name="author" required>
-              </label>
-            </div>
-            <div class="control">
-              <label for="pages">
-                Pages: <input type="number" id="pages" name="pages" required>
-              </label>
-            </div>
-            <div class="control">
-              <button type="submit" id="submit">Add Book</button>
-            </div>
-          </form>
         </div>
 
         <!-- Current library -->
