@@ -158,7 +158,7 @@ form.addEventListener("submit", (e) => {
   e.preventDefault();
 
   let formData = e.target.elements;
-  addBookToLibrary(formData.title.value, formData.author.value, formData.pages.value);
+  addBookToLibrary(formData.title.value, formData.author.value, formData.pages.value, formData.read.checked);
   modalForm.classList.add("hidden");
 });
 
@@ -167,8 +167,8 @@ cancelButton.addEventListener("click", (e) => {
   modalForm.classList.add("hidden");
 })
 
-function addBookToLibrary(title, author, pages) {
-  newBook = new Book(title, author, pages);
+function addBookToLibrary(title, author, pages, read) {
+  newBook = new Book(title, author, pages, read);
   myLibrary.push(newBook);
   showBooks();
 }
