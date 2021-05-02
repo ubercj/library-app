@@ -130,6 +130,10 @@ button {
   background: linear-gradient(rgb(64, 64, 221), rgb(102, 102, 223));
 }
 
+button:hover {
+  cursor: pointer;
+}
+
 .create {
   height: 40px;
   width: 75px;
@@ -186,6 +190,10 @@ button {
   height: 20px;
   border-radius: 50%;
   margin-left: 10px;
+}
+
+.read-display:hover {
+  cursor: pointer;
 }
 
 .is-read {

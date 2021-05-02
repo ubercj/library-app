@@ -92,6 +92,7 @@ function showBooks() {
     bookCard.appendChild(bookRead);
 
     bookReadDisplay.classList.add("read-display");
+    bookReadDisplay.setAttribute("index", i);
     if (book.read) {
       bookReadDisplay.classList.add("is-read");
     } else {
@@ -107,11 +108,6 @@ function showBooks() {
     deleteButton.textContent = "Delete";
     buttonContainer.appendChild(deleteButton);
 
-    readButton.classList.add("read");
-    readButton.setAttribute("index", i);
-    readButton.textContent = "Read/Unread";
-    buttonContainer.appendChild(readButton);
-
     i++;
   });
 
@@ -121,7 +117,7 @@ function showBooks() {
     node.addEventListener("click", function() { deleteBook(node.getAttribute("index")) });
   })
 
-  readButtons = document.querySelectorAll(".read");
+  readButtons = document.querySelectorAll(".read-display");
   readButtons.forEach(node => {
     node.addEventListener("click", function() { changeReadStatus(node.getAttribute("index")) });
   })
