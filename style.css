@@ -112,7 +112,7 @@ input, select {
 
 body {
   font-size: 16px;
-  background-color: darkslateblue;
+  background-color: rgb(120, 144, 180);
 }
 
 h1 {
@@ -123,6 +123,18 @@ h1 {
   margin-bottom: 20px;
 }
 
+button {
+  border: 1px solid grey;
+  border-radius: 8%;
+  color: white;
+  background: linear-gradient(rgb(64, 64, 221), rgb(102, 102, 223));
+}
+
+.create {
+  height: 40px;
+  width: 75px;
+}
+
 .container {
   width: 70%;
   margin: 10px auto;
@@ -131,12 +143,69 @@ h1 {
   align-items: center;
 }
 
-.libItem {
-  border: 1px solid black;
-  background-color: burlywood;
+.current {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid rgb(255, 255, 255);
+  border-radius: 8px;
+  flex: 1, 1, content;
+  margin: 10px;
+  background-color: rgb(202, 202, 202);
+  padding: 20px;
+  text-align: center;
+}
+
+.card h2 {
+  font-size: 1.5em;
+  text-decoration: underline;
+}
+
+.card p {
   margin-top: 10px;
   margin-bottom: 10px;
-  padding: 10px;
+}
+
+.card p:first-of-type {
+  margin-top: 4px;
+}
+
+.book-read {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.read-display {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  margin-left: 10px;
+}
+
+.is-read {
+  background: url("icons/checkmark.png"), green;
+  background-size: contain;
+}
+
+.not-read {
+  background: url("icons/x-mark.png"), rgb(163, 18, 18);
+  background-size: contain;
+}
+
+.button-container {
+  margin-top: 15px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.delete {
+  margin-right: 5px;
 }
 
 .modal {
@@ -147,6 +216,7 @@ h1 {
   align-items: center;
   background-color: rgba(100, 100, 100, .9);
   border: 1px solid rgb(255, 255, 255);
+  border-radius: 5px;
   color: white;
 }
 
@@ -161,7 +231,9 @@ h1 {
 }
 
 input {
+  line-height: 2em;
   margin: 10px;
+  border-radius: 5px;
 }
 
 .hidden {

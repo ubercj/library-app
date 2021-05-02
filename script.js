@@ -23,10 +23,6 @@ if(!localStorage.getItem('title0')) {
 function fillLibrary() {
   let i = 0;
   while(localStorage.getItem(`title${i}`)) {
-    // addBookToLibrary(localStorage.getItem(`title${i}`,
-    //                                       `author${i}`,
-    //                                       `pages${i}`,
-    //                                       `read${i}`));
     bookToAdd = new Book(localStorage.getItem(`title${i}`),
                         localStorage.getItem(`author${i}`),
                         localStorage.getItem(`pages${i}`),
@@ -68,24 +64,53 @@ function showBooks() {
   // Adds an index data attribute to associate DOM objects with Books
   let i = 0;
   myLibrary.forEach(book => {
-    const libItem = document.createElement("p");
+    const bookCard = document.createElement("div");
+    const bookTitle = document.createElement("h2");
+    const bookAuthor = document.createElement("p");
+    const bookPages = document.createElement("p");
+    const bookRead = document.createElement("div");
+    const bookReadDisplay = document.createElement("div");
+
+    const buttonContainer = document.createElement("div");
     const deleteButton = document.createElement("button");
     const readButton = document.createElement("button");
 
-    libItem.classList.add("libItem");
-    libItem.setAttribute("index", i);
-    libItem.textContent = book.info();
-    currentLib.appendChild(libItem);
+    bookCard.classList.add("card");
+    currentLib.appendChild(bookCard);
 
-    libItem.appendChild(deleteButton);
+    bookTitle.classList.add("bookTitle");
+    bookTitle.textContent = book.title;
+    bookCard.appendChild(bookTitle);
+
+    bookAuthor.textContent = `by ${book.author}`;
+    bookCard.appendChild(bookAuthor);
+    bookPages.textContent = `${book.pages} pages`
+    bookCard.appendChild(bookPages);
+
+    bookRead.classList.add("book-read");
+    bookRead.textContent = "Read?";
+    bookCard.appendChild(bookRead);
+
+    bookReadDisplay.classList.add("read-display");
+    if (book.read) {
+      bookReadDisplay.classList.add("is-read");
+    } else {
+      bookReadDisplay.classList.add("not-read");
+    }
+    bookRead.appendChild(bookReadDisplay);
+
+    buttonContainer.classList.add("button-container");
+    bookCard.appendChild(buttonContainer);
+
     deleteButton.classList.add("delete");
     deleteButton.setAttribute("index", i);
     deleteButton.textContent = "Delete";
+    buttonContainer.appendChild(deleteButton);
 
-    libItem.appendChild(readButton);
     readButton.classList.add("read");
     readButton.setAttribute("index", i);
     readButton.textContent = "Read/Unread";
+    buttonContainer.appendChild(readButton);
 
     i++;
   });
