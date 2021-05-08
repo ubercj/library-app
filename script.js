@@ -1,4 +1,21 @@
 
+class Book {
+  constructor(title, author, pages, read) {
+    this.title = title;
+    this.author = author;
+    this.pages = pages;
+    this.read = read;
+  }
+
+  info() {
+    return `${this.title} written by ${this.author}. It is ${this.pages} pages long. It is ${this.read} that I have read this book.`;
+  }
+
+  toggleRead() {
+    this.read ? this.read = false : this.read = true;
+  }
+}
+
 // Seed values
 let theHobbit = new Book("The Hobbit", "J.R.R. Tolkien", 295, false);
 let fahrenheit451 = new Book("Fahrenheit 451", "Ray Bradbury", 303, true);
@@ -23,10 +40,11 @@ if(!localStorage.getItem('title0')) {
 function fillLibrary() {
   let i = 0;
   while(localStorage.getItem(`title${i}`)) {
+    let readBool = localStorage.getItem(`read${i}`) === "true";
     bookToAdd = new Book(localStorage.getItem(`title${i}`),
                         localStorage.getItem(`author${i}`),
                         localStorage.getItem(`pages${i}`),
-                        localStorage.getItem(`read${i}`));
+                        readBool);
     myLibrary.push(bookToAdd);
     i++;
   };
@@ -42,20 +60,6 @@ const form = document.querySelector("#form");
 
 // Show books already in the library
 showBooks();
-
-// Book constructor
-function Book(title, author, pages, read = false) {
-  this.title = title;
-  this.author = author;
-  this.pages = pages;
-  this.read = read;
-  this.info = function() {
-    return this.title + " written by " + this.author + ". It is " + this.pages + " pages long. It is " + this.read + " that I have read this book.";
-  },
-  this.toggleRead = function() {
-    this.read ? this.read = false : this.read = true;
-  }
-}
 
 // Library functions
 function showBooks() {
@@ -73,7 +77,6 @@ function showBooks() {
 
     const buttonContainer = document.createElement("div");
     const deleteButton = document.createElement("button");
-    const readButton = document.createElement("button");
 
     bookCard.classList.add("card");
     currentLib.appendChild(bookCard);
@@ -158,6 +161,7 @@ form.addEventListener("submit", (e) => {
   e.preventDefault();
 
   let formData = e.target.elements;
+  console.log(formData);
   addBookToLibrary(formData.title.value, formData.author.value, formData.pages.value, formData.read.checked);
   modalForm.classList.add("hidden");
 });
